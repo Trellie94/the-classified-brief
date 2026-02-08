@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Conspiracy } from "@/types/conspiracy";
-import { generatePresentationPPTX } from "@/lib/slideGenerator";
 
 interface Slide {
   slide_number: number;
@@ -22,6 +21,8 @@ interface GeneratedImage {
 interface EvidenceFabricatorProps {
   slides: Slide[];
   conspiracy: Conspiracy;
+  generatedImages: GeneratedImage[];
+  onImagesChange: (images: GeneratedImage[]) => void;
 }
 
 const IMAGE_STYLES = [
@@ -54,8 +55,9 @@ const IMAGE_STYLES = [
 export default function EvidenceFabricator({
   slides,
   conspiracy,
+  generatedImages,
+  onImagesChange,
 }: EvidenceFabricatorProps) {
-  const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [customPrompt, setCustomPrompt] = useState(
     slides[0]?.suggested_image || ""
@@ -97,15 +99,16 @@ export default function EvidenceFabricator({
         finalImageUrl = data.imageUrl;
       }
 
-      setGeneratedImages((prev) => [
-        ...prev.filter((img) => img.slideNumber !== currentSlideData.slide_number),
+      const updatedImages = [
+        ...generatedImages.filter((img) => img.slideNumber !== currentSlideData.slide_number),
         {
           slideNumber: currentSlideData.slide_number,
           imageUrl: finalImageUrl,
           style: selectedStyle,
           prompt: customPrompt,
         },
-      ]);
+      ];
+      onImagesChange(updatedImages);
     } catch (err) {
       console.error("Image generation error:", err);
       setError(err instanceof Error ? err.message : "Unknown error");
@@ -134,47 +137,10 @@ export default function EvidenceFabricator({
     (img) => img.slideNumber === currentSlideData.slide_number
   );
 
-  const allSlidesHaveImages = slides.every((slide) =>
-    generatedImages.some((img) => img.slideNumber === slide.slide_number)
-  );
-
-  const handleExportPPTX = async () => {
-    setIsGenerating(true);
-    setError(null);
-
-    try {
-      await generatePresentationPPTX(conspiracy, slides, generatedImages);
-    } catch (err) {
-      console.error("PPTX export error:", err);
-      setError(err instanceof Error ? err.message : "Export failed");
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
   return (
-    <section
-      id="evidence-fabricator"
-      className="min-h-screen py-20 px-6 relative z-10"
-    >
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-impact text-5xl md:text-6xl uppercase text-accent-red mb-4 tracking-wide">
-            Fabricate Evidence
-          </h2>
-          <p className="text-foreground/60 text-sm md:text-base max-w-2xl mx-auto">
-            Generate visual &quot;proof&quot; for each slide. The Bureau&apos;s image synthesis division is standing by.
-          </p>
-          <div className="mt-4 inline-block px-4 py-2 border border-accent-yellow/50 bg-accent-yellow/10">
-            <p className="text-xs font-mono uppercase text-accent-yellow">
-              {generatedImages.length} / {slides.length} Images Fabricated
-            </p>
-          </div>
-        </div>
-
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+    <div className="space-y-6">
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left: Slide Info & Controls */}
           <div className="space-y-6">
             {/* Slide Navigation */}
@@ -312,27 +278,7 @@ export default function EvidenceFabricator({
             </div>
           </div>
         </div>
-
-        {/* Export Button - only shows when all slides have images */}
-        {allSlidesHaveImages && (
-          <div className="text-center pt-8 border-t-2 border-foreground/10">
-            <button
-              onClick={handleExportPPTX}
-              disabled={isGenerating}
-              className="px-12 py-5 bg-accent-yellow hover:bg-accent-yellow/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-yellow hover:border-accent-green disabled:opacity-50 disabled:cursor-not-allowed glitch"
-            >
-              {isGenerating ? (
-                <span className="loading-dots">EXTRACTING</span>
-              ) : (
-                "EXTRACT DOSSIER (.PPTX)"
-              )}
-            </button>
-            <p className="mt-4 text-xs text-foreground/40 tracking-wider uppercase">
-              All Evidence Fabricated // Ready for Export
-            </p>
-          </div>
-        )}
       </div>
-    </section>
+    </div>
   );
 }

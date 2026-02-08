@@ -6,20 +6,20 @@ import ConspiracyCard from "./ConspiracyCard";
 import conspiraciesData from "@/data/conspiracies.json";
 
 interface ConspiracySelectorProps {
-  onProceed: (conspiracy: Conspiracy) => void;
+  onSelect: (conspiracy: Conspiracy) => void;
 }
 
-export default function ConspiracySelector({ onProceed }: ConspiracySelectorProps) {
+export default function ConspiracySelector({ onSelect }: ConspiracySelectorProps) {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
 
   const conspiracies = conspiraciesData as Conspiracy[];
 
-  const handleProceed = () => {
+  const handleSelectFile = () => {
     const selected = conspiracies.find((c) => c.id === selectedId);
     if (selected) {
-      onProceed(selected);
+      onSelect(selected);
     }
   };
 
@@ -38,23 +38,9 @@ export default function ConspiracySelector({ onProceed }: ConspiracySelectorProp
   }, [searchQuery, difficultyFilter, conspiracies]);
 
   return (
-    <section
-      id="conspiracy-selector"
-      className="min-h-screen py-20 px-6 relative z-10"
-    >
-      {/* Section Header */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <div className="text-center mb-8">
-          <h2 className="font-impact text-5xl md:text-6xl uppercase text-accent-green mb-4 tracking-wide">
-            Choose Your Truth
-          </h2>
-          <p className="text-foreground/60 text-sm md:text-base max-w-2xl mx-auto">
-            Select your conspiracy theory from the classified archives below.
-            Remember: the more absurd, the more convincing.
-          </p>
-        </div>
-
-        {/* Search and Filter Controls */}
+    <div className="relative">
+      {/* Search and Filter Controls */}
+      <div className="mb-8">
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           {/* Search Bar */}
           <div className="flex-1">
@@ -137,16 +123,16 @@ export default function ConspiracySelector({ onProceed }: ConspiracySelectorProp
       {selectedId && (
         <div className="max-w-7xl mx-auto mt-12 text-center">
           <button
-            onClick={handleProceed}
+            onClick={handleSelectFile}
             className="px-12 py-5 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-red hover:border-accent-yellow glitch"
           >
-            PROCEED TO BRIEFING
+            Select this file
           </button>
           <p className="mt-4 text-xs text-foreground/40 tracking-wider uppercase">
             Selected: {conspiracies.find((c) => c.id === selectedId)?.title}
           </p>
         </div>
       )}
-    </section>
+    </div>
   );
 }

@@ -1,44 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Conspiracy } from "@/types/conspiracy";
-import ConspiracySelector from "@/components/ConspiracySelector";
-import ChatWorkshop from "@/components/ChatWorkshop";
-import EvidenceFabricator from "@/components/EvidenceFabricator";
-
-interface Slide {
-  slide_number: number;
-  title: string;
-  talking_points: string[];
-  speaker_notes: string;
-  suggested_image: string;
-}
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [selectedConspiracy, setSelectedConspiracy] = useState<Conspiracy | null>(null);
-  const [generatedSlides, setGeneratedSlides] = useState<Slide[] | null>(null);
+  const router = useRouter();
 
-  const scrollToSelector = () => {
-    const element = document.getElementById("conspiracy-selector");
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleConspiracySelected = (conspiracy: Conspiracy) => {
-    setSelectedConspiracy(conspiracy);
-    // Scroll to chat workshop
-    setTimeout(() => {
-      const element = document.getElementById("chat-workshop");
-      element?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
-  const handleSlidesGenerated = (slides: Slide[]) => {
-    setGeneratedSlides(slides);
-    // Scroll to evidence fabricator after slides are shown
-    setTimeout(() => {
-      const element = document.getElementById("evidence-fabricator");
-      element?.scrollIntoView({ behavior: "smooth" });
-    }, 500);
+  const handleAcceptMission = () => {
+    router.push("/briefing");
   };
 
   return (
@@ -91,7 +59,7 @@ export default function Home() {
           {/* CTA Button */}
           <div className="pt-8">
             <button
-              onClick={scrollToSelector}
+              onClick={handleAcceptMission}
               className="group relative px-12 py-5 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-red hover:border-accent-yellow glitch"
             >
               <span className="relative z-10">ACCEPT YOUR MISSION</span>
@@ -113,25 +81,6 @@ export default function Home() {
           </p>
         </div>
       </main>
-
-      {/* Conspiracy Selector Section */}
-      <ConspiracySelector onProceed={handleConspiracySelected} />
-
-      {/* Chat Workshop Section - only shows after conspiracy is selected */}
-      {selectedConspiracy && (
-        <ChatWorkshop
-          conspiracy={selectedConspiracy}
-          onSlidesGenerated={handleSlidesGenerated}
-        />
-      )}
-
-      {/* Evidence Fabricator Section - only shows after slides are generated */}
-      {generatedSlides && selectedConspiracy && (
-        <EvidenceFabricator
-          slides={generatedSlides}
-          conspiracy={selectedConspiracy}
-        />
-      )}
     </>
   );
 }
