@@ -6,12 +6,14 @@ interface ConspiracyCardProps {
   conspiracy: Conspiracy;
   isSelected: boolean;
   onSelect: () => void;
+  onProceed: () => void;
 }
 
 export default function ConspiracyCard({
   conspiracy,
   isSelected,
   onSelect,
+  onProceed,
 }: ConspiracyCardProps) {
   const difficultyColors = {
     "Beginner Agent": "text-accent-green",
@@ -22,8 +24,7 @@ export default function ConspiracyCard({
   const tinfoilHats = "🎩".repeat(conspiracy.absurdity);
 
   return (
-    <button
-      onClick={onSelect}
+    <div
       className={`
         relative w-full text-left p-6 border-2 transition-all duration-300
         ${
@@ -31,8 +32,9 @@ export default function ConspiracyCard({
             ? "border-accent-yellow bg-accent-yellow/10 scale-105"
             : "border-foreground/20 bg-background/80 hover:border-accent-green/50 hover:bg-accent-green/5"
         }
-        group
+        group cursor-pointer
       `}
+      onClick={!isSelected ? onSelect : undefined}
     >
       {/* Case Number */}
       <div className="absolute top-2 right-2 text-[10px] text-foreground/30 font-mono">
@@ -85,6 +87,22 @@ export default function ConspiracyCard({
         </div>
       </div>
 
+      {/* Select Button - only shows when selected */}
+      {isSelected && (
+        <div className="mt-6 pt-4 border-t border-accent-yellow/30">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onProceed();
+            }}
+            className="w-full px-6 py-3 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-lg tracking-widest uppercase transition-all duration-200 border-2 border-accent-red hover:border-accent-yellow relative overflow-hidden group/btn"
+          >
+            <span className="relative z-10">Select this file</span>
+            <div className="absolute inset-0 bg-accent-yellow opacity-0 group-hover/btn:opacity-20 transition-opacity"></div>
+          </button>
+        </div>
+      )}
+
       {/* Hover effect stripe */}
       <div
         className={`
@@ -92,6 +110,6 @@ export default function ConspiracyCard({
         ${isSelected ? "bg-accent-yellow" : "bg-accent-green/0 group-hover:bg-accent-green"}
       `}
       />
-    </button>
+    </div>
   );
 }

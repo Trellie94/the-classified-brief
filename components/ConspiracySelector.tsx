@@ -103,6 +103,7 @@ export default function ConspiracySelector({ onSelect }: ConspiracySelectorProps
                 conspiracy={conspiracy}
                 isSelected={selectedId === conspiracy.id}
                 onSelect={() => setSelectedId(conspiracy.id)}
+                onProceed={handleSelectFile}
               />
             ))}
           </div>
@@ -118,21 +119,6 @@ export default function ConspiracySelector({ onSelect }: ConspiracySelectorProps
           </div>
         )}
       </div>
-
-      {/* Continue Button - only shows when conspiracy is selected */}
-      {selectedId && (
-        <div className="max-w-7xl mx-auto mt-12 text-center">
-          <button
-            onClick={handleSelectFile}
-            className="px-12 py-5 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-red hover:border-accent-yellow glitch"
-          >
-            Select this file
-          </button>
-          <p className="mt-4 text-xs text-foreground/40 tracking-wider uppercase">
-            Selected: {conspiracies.find((c) => c.id === selectedId)?.title}
-          </p>
-        </div>
-      )}
     </div>
   );
 }
