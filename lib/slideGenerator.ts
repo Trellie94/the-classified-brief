@@ -20,6 +20,27 @@ interface Conspiracy {
   teaser: string;
 }
 
+// Helper function to convert image URL to base64
+async function imageUrlToBase64(url: string): Promise<string> {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        resolve(base64);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch (error) {
+    console.error("Error converting image to base64:", error);
+    throw error;
+  }
+}
+
 export async function generatePresentationPPTX(
   conspiracy: Conspiracy,
   slides: Slide[],
@@ -124,9 +145,12 @@ export async function generatePresentationPPTX(
     // If image exists, add it
     if (slideImage) {
       try {
+        // Convert URL to base64
+        const base64Image = await imageUrlToBase64(slideImage.imageUrl);
+
         // Add image on the right side
         contentSlide.addImage({
-          data: slideImage.imageUrl,
+          data: base64Image,
           x: 6,
           y: 1.5,
           w: 3.5,
