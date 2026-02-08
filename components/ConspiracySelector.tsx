@@ -5,12 +5,23 @@ import { Conspiracy } from "@/types/conspiracy";
 import ConspiracyCard from "./ConspiracyCard";
 import conspiraciesData from "@/data/conspiracies.json";
 
-export default function ConspiracySelector() {
+interface ConspiracySelectorProps {
+  onProceed: (conspiracy: Conspiracy) => void;
+}
+
+export default function ConspiracySelector({ onProceed }: ConspiracySelectorProps) {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
 
   const conspiracies: Conspiracy[] = conspiraciesData;
+
+  const handleProceed = () => {
+    const selected = conspiracies.find((c) => c.id === selectedId);
+    if (selected) {
+      onProceed(selected);
+    }
+  };
 
   // Filter conspiracies based on search and difficulty
   const filteredConspiracies = useMemo(() => {
@@ -125,7 +136,10 @@ export default function ConspiracySelector() {
       {/* Continue Button - only shows when conspiracy is selected */}
       {selectedId && (
         <div className="max-w-7xl mx-auto mt-12 text-center">
-          <button className="px-12 py-5 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-red hover:border-accent-yellow glitch">
+          <button
+            onClick={handleProceed}
+            className="px-12 py-5 bg-accent-red hover:bg-accent-red/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-red hover:border-accent-yellow glitch"
+          >
             PROCEED TO BRIEFING
           </button>
           <p className="mt-4 text-xs text-foreground/40 tracking-wider uppercase">

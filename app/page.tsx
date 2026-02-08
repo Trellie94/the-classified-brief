@@ -1,11 +1,25 @@
 "use client";
 
+import { useState } from "react";
+import { Conspiracy } from "@/types/conspiracy";
 import ConspiracySelector from "@/components/ConspiracySelector";
+import ChatWorkshop from "@/components/ChatWorkshop";
 
 export default function Home() {
+  const [selectedConspiracy, setSelectedConspiracy] = useState<Conspiracy | null>(null);
+
   const scrollToSelector = () => {
     const element = document.getElementById("conspiracy-selector");
     element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleConspiracySelected = (conspiracy: Conspiracy) => {
+    setSelectedConspiracy(conspiracy);
+    // Scroll to chat workshop
+    setTimeout(() => {
+      const element = document.getElementById("chat-workshop");
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   return (
@@ -82,7 +96,10 @@ export default function Home() {
       </main>
 
       {/* Conspiracy Selector Section */}
-      <ConspiracySelector />
+      <ConspiracySelector onProceed={handleConspiracySelected} />
+
+      {/* Chat Workshop Section - only shows after conspiracy is selected */}
+      {selectedConspiracy && <ChatWorkshop conspiracy={selectedConspiracy} />}
     </>
   );
 }
