@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #e8e6e3;
+  --color-accent-green: #39FF14;
+  --color-accent-red: #FF3131;
+  --color-accent-yellow: #FFE500;
+
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+  --font-impact: Impact, 'Arial Black', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-mono;
+    cursor: crosshair;
+  }
+}
+
+/* Grain texture overlay */
+@layer utilities {
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Scanline effect */
+  .scanlines {
+    position: relative;
+  }
+
+  .scanlines::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
+
+  /* Glitch effect on hover */
+  .glitch {
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .glitch:hover {
+    animation: glitch 0.3s infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  /* Classified stamp */
+  .stamp {
+    @apply font-mono text-accent-red uppercase tracking-widest;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    opacity: 0.6;
+  }
+
+  /* Redacted bar */
+  .redacted {
+    background: #000;
+    color: transparent;
+    user-select: none;
+  }
+
+  /* Slightly rotated elements */
+  .pinned {
+    transform: rotate(-1deg);
+  }
+
+  /* Loading text animation */
+  .loading-dots::after {
+    content: '';
+    animation: dots 1.5s infinite;
+  }
+
+  @keyframes dots {
+    0%, 20% {
+      content: '';
+    }
+    40% {
+      content: '.';
+    }
+    60% {
+      content: '..';
+    }
+    80%, 100% {
+      content: '...';
+    }
+  }
+}
