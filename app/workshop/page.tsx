@@ -271,20 +271,7 @@ export default function WorkshopPage() {
           {/* Slides Preview (shown after generation) */}
           {slides && (
             <div className="mb-12">
-              <div className="text-center mb-8">
-                <h3 className="font-impact text-3xl uppercase text-accent-yellow mb-2">
-                  Presentation Framework Generated
-                </h3>
-                <p className="text-sm text-foreground/60">
-                  {slides.length} slides ready for evidence fabrication
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {slides.map((slide) => (
-                  <SlidePreview key={slide.slide_number} slide={slide} />
-                ))}
-              </div>
+              <SlidePreview slides={slides} onProceed={() => {}} />
             </div>
           )}
 
