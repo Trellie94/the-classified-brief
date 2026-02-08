@@ -30,19 +30,15 @@ Visit http://localhost:3000 (or 3001 if 3000 is in use)
 - Tailwind CSS v4
 - Password-protected via middleware
 
-## Current Features (Phase 1)
+## Current Features (All Phases Complete!)
 
 ✅ Password-protected landing page
 ✅ Full conspiracy aesthetic (grain, scanlines, glitch effects)
 ✅ Space Mono + Impact fonts
-✅ Ready for Vercel deployment
-
-## Coming in Future Phases
-
-- Conspiracy theory selector (50 theories)
-- AI chatbot workshop (Claude API)
-- Evidence fabricator (DALL-E 3 API)
-- Slide deck export (PPTX)
+✅ Conspiracy theory selector (50 theories)
+✅ AI chatbot workshop (Claude Sonnet 4.5 API)
+✅ Evidence fabricator (DALL-E 3 API)
+✅ Slide deck export (PPTX with embedded images)
 
 ---
 
