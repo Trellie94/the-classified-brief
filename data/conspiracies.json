@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1,
+    "title": "Birds Aren't Real",
+    "teaser": "Pigeons are CIA surveillance drones — the entire avian population was replaced in the 1960s",
+    "absurdity": 5,
+    "difficulty": "Deep State"
+  },
+  {
+    "id": 2,
+    "title": "Australia Doesn't Exist",
+    "teaser": "It's actually Heathrow Terminal 13 — all flights are redirected to a soundstage",
+    "absurdity": 5,
+    "difficulty": "Deep State"
+  },
+  {
+    "id": 3,
+    "title": "Finland: The Japanese Fishing Conspiracy",
+    "teaser": "Finland was invented by Japan and Russia for fishing rights — it's actually just ocean",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 4,
+    "title": "Mattress Firm Money Laundering",
+    "teaser": "There's no way they sell that many mattresses — it's clearly a front operation",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 5,
+    "title": "Denver Airport Illuminati HQ",
+    "teaser": "The Denver Airport is a secret Illuminati headquarters with underground bunkers",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 6,
+    "title": "Squirrels Are Economic Terrorists",
+    "teaser": "They're hoarding nuts to destabilize the global economy — it's acorn-based warfare",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 7,
+    "title": "IKEA: Portal to Another Dimension",
+    "teaser": "IKEA stores are designed to trap you in an alternate dimension where time moves differently",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 8,
+    "title": "The Moon Hologram",
+    "teaser": "The moon is a hologram projected by NASA to sell telescopes and create tides",
+    "absurdity": 5,
+    "difficulty": "Deep State"
+  },
+  {
+    "id": 9,
+    "title": "WiFi Turns Frogs Into Accountants",
+    "teaser": "WiFi signals are slowly turning frogs into accountants — amphibian tax season is coming",
+    "absurdity": 5,
+    "difficulty": "Deep State"
+  },
+  {
+    "id": 10,
+    "title": "Belgium Is a Collective Hallucination",
+    "teaser": "The entire country of Belgium is a shared delusion — waffles are the only real part",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 11,
+    "title": "Cats Are Alien Surveillance Units",
+    "teaser": "Cats are alien surveillance units gathering data for an invasion — purring is data transmission",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 12,
+    "title": "Time Zones Sell Clocks",
+    "teaser": "Time zones were invented by clock companies to sell more clocks — Big Horology strikes again",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 13,
+    "title": "Clouds Are Government Email Storage",
+    "teaser": "Clouds are government storage units for deleted emails — that's why they call it 'the cloud'",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 14,
+    "title": "The Letter Q Is a Sleeper Agent",
+    "teaser": "The letter 'Q' was added to the alphabet as a sleeper agent — it's been waiting for activation",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 15,
+    "title": "Geese: Ex-Military With Anger Issues",
+    "teaser": "Geese are ex-military with honourable discharges and severe PTSD — approach with caution",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 16,
+    "title": "Bermuda Triangle Uber Zone",
+    "teaser": "The Bermuda Triangle is just an Uber pickup zone for aliens — surge pricing is real",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 17,
+    "title": "Your Reflection Is a Different Person",
+    "teaser": "Mirrors are portals and your reflection is a different person who is also tired",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 18,
+    "title": "Antarctica Has Security Penguins",
+    "teaser": "Antarctica is the edge of the map and penguins are the security guards — they're armed",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 19,
+    "title": "Daylight Saving Time Sells Curtains",
+    "teaser": "Daylight saving time is a psyop to sell more curtains — Big Window Treatment is real",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 20,
+    "title": "Trees Are Original 5G Towers",
+    "teaser": "Trees are 5G towers that got there first — leaves are antennas, photosynthesis is a coverup",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 21,
+    "title": "The Ocean Is Sky Water",
+    "teaser": "The ocean is just sky water that forgot to evaporate — marine biology is cloud science",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 22,
+    "title": "Bees Are Nature's Accountants",
+    "teaser": "Bees are nature's accountants and honey is their spreadsheet — the hive is an audit firm",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 23,
+    "title": "All Dogs Are One Dog",
+    "teaser": "All dogs are the same dog and they just move really fast — quantum good boys",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 24,
+    "title": "Stonehenge Is Ancient IKEA",
+    "teaser": "Stonehenge is an ancient IKEA that no one could assemble — the instructions were in Swedish",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 25,
+    "title": "The Titanic Didn't Want to Go",
+    "teaser": "The Titanic never sank — it just didn't want to go to New York and took a detour",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 26,
+    "title": "Grass Is Government Carpet",
+    "teaser": "Grass is government-installed outdoor carpet to hide what's really underneath — concrete secrets",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 27,
+    "title": "Mountains Are Earth's Pimples",
+    "teaser": "Mountains are Earth's pimples and volcanoes happen when the planet pops them",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 28,
+    "title": "Giraffes Are Surveillance Periscopes",
+    "teaser": "Giraffes are government surveillance periscopes — those long necks aren't natural",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 29,
+    "title": "Sleep Is Forced Updates",
+    "teaser": "Sleep is when the government forces updates on your brain — dreams are loading screens",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 30,
+    "title": "Left Socks Go to Sock Valhalla",
+    "teaser": "Missing left socks are taken to Sock Valhalla for heroic laundry service — only the worthy",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 31,
+    "title": "Elevator Music Is Mind Control",
+    "teaser": "Elevator music is subliminal mind control to make you comfortable with going up or down",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 32,
+    "title": "Ducks Have Diplomatic Immunity",
+    "teaser": "Ducks have diplomatic immunity — that's why they can commit crimes in parks with impunity",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 33,
+    "title": "Fire Hydrants Are Lava Vents",
+    "teaser": "Fire hydrants are emergency lava vents installed to prevent Earth's core from overheating",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 34,
+    "title": "Déjà Vu Is Save File Loading",
+    "teaser": "Déjà vu is proof we're in a simulation and someone just loaded a save file",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 35,
+    "title": "Whales Are Submarines in Disguise",
+    "teaser": "Whales are actually submarines in disguise — whale songs are sonar pings",
+    "absurdity": 4,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 36,
+    "title": "The Eiffel Tower Is a Radio",
+    "teaser": "The Eiffel Tower is just a really big radio antenna pretending to be art",
+    "absurdity": 1,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 37,
+    "title": "Libraries Are Thought Prisons",
+    "teaser": "Libraries are thought prisons where books are held captive — free the literature",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 38,
+    "title": "Humidity Is Ocean Evaporation Tax",
+    "teaser": "Humidity is a tax the atmosphere charges for ocean evaporation — weather is economics",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 39,
+    "title": "Shopping Carts Have Free Will",
+    "teaser": "Shopping carts have free will and choose to veer left — it's not the wheels",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 40,
+    "title": "Owls Are Night Managers",
+    "teaser": "Owls are night shift managers for the forest — they're unionized and have benefits",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 41,
+    "title": "Rainbows Are Loading Bars",
+    "teaser": "Rainbows are loading bars for weather transitions — double rainbows mean buffering",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 42,
+    "title": "Starfish Are Ocean Sheriffs",
+    "teaser": "Starfish are ocean sheriffs — that's why they have five-pointed badges on their bodies",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 43,
+    "title": "Yawning Is Peer-to-Peer Sync",
+    "teaser": "Yawning is contagious because it's a peer-to-peer biological sync protocol",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 44,
+    "title": "Tumbleweeds Are Scouts",
+    "teaser": "Tumbleweeds are desert scouts gathering intel — they report to Big Cactus",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 45,
+    "title": "ATMs Are Money Laundering Literally",
+    "teaser": "ATMs literally launder money — that's why bills come out crisp and in sequential order",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 46,
+    "title": "Fog Is Unrendered Chunks",
+    "teaser": "Fog is just unrendered chunks in the simulation — the graphics card is struggling",
+    "absurdity": 3,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 47,
+    "title": "Zebras Are Unfinished Horses",
+    "teaser": "Zebras are horses that didn't finish rendering — the stripes are texture errors",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  },
+  {
+    "id": 48,
+    "title": "Hiccups Are Internal Error Messages",
+    "teaser": "Hiccups are your body's internal error messages — it's trying to tell you something crashed",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 49,
+    "title": "Polar Bears Are Arctic Bouncers",
+    "teaser": "Polar bears are bouncers for the Arctic — they're checking if you're on the list",
+    "absurdity": 2,
+    "difficulty": "Beginner Agent"
+  },
+  {
+    "id": 50,
+    "title": "Butterflies Are Spy Drones",
+    "teaser": "Butterflies are the NSA's prettiest spy drones — beauty is the perfect cover",
+    "absurdity": 3,
+    "difficulty": "Field Operative"
+  }
+]
