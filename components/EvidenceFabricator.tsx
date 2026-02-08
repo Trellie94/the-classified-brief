@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Conspiracy } from "@/types/conspiracy";
+import { generatePresentationPPTX } from "@/lib/slideGenerator";
 
 interface Slide {
   slide_number: number;
@@ -136,6 +137,20 @@ export default function EvidenceFabricator({
   const allSlidesHaveImages = slides.every((slide) =>
     generatedImages.some((img) => img.slideNumber === slide.slide_number)
   );
+
+  const handleExportPPTX = async () => {
+    setIsGenerating(true);
+    setError(null);
+
+    try {
+      await generatePresentationPPTX(conspiracy, slides, generatedImages);
+    } catch (err) {
+      console.error("PPTX export error:", err);
+      setError(err instanceof Error ? err.message : "Export failed");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
 
   return (
     <section
@@ -301,8 +316,16 @@ export default function EvidenceFabricator({
         {/* Export Button - only shows when all slides have images */}
         {allSlidesHaveImages && (
           <div className="text-center pt-8 border-t-2 border-foreground/10">
-            <button className="px-12 py-5 bg-accent-yellow hover:bg-accent-yellow/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-yellow hover:border-accent-green glitch">
-              EXTRACT DOSSIER (.PPTX)
+            <button
+              onClick={handleExportPPTX}
+              disabled={isGenerating}
+              className="px-12 py-5 bg-accent-yellow hover:bg-accent-yellow/80 text-background font-impact text-2xl tracking-widest uppercase transition-all duration-200 border-4 border-accent-yellow hover:border-accent-green disabled:opacity-50 disabled:cursor-not-allowed glitch"
+            >
+              {isGenerating ? (
+                <span className="loading-dots">EXTRACTING</span>
+              ) : (
+                "EXTRACT DOSSIER (.PPTX)"
+              )}
             </button>
             <p className="mt-4 text-xs text-foreground/40 tracking-wider uppercase">
               All Evidence Fabricated // Ready for Export
