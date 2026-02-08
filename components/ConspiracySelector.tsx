@@ -14,7 +14,7 @@ export default function ConspiracySelector({ onProceed }: ConspiracySelectorProp
   const [searchQuery, setSearchQuery] = useState("");
   const [difficultyFilter, setDifficultyFilter] = useState<string>("all");
 
-  const conspiracies: Conspiracy[] = conspiraciesData;
+  const conspiracies = conspiraciesData as Conspiracy[];
 
   const handleProceed = () => {
     const selected = conspiracies.find((c) => c.id === selectedId);
