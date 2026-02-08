@@ -278,7 +278,6 @@ export default function EvidenceFabricator({
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
