@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Conspiracy } from "@/types/conspiracy";
 import { generatePresentationPPTX } from "@/lib/slideGenerator";
 import {
@@ -16,7 +16,6 @@ import {
 
 export default function CompletePage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [conspiracy, setConspiracy] = useState<Conspiracy | null>(null);
   const [slides, setSlides] = useState<Slide[] | null>(null);
   const [images, setImages] = useState<GeneratedImage[] | null>(null);

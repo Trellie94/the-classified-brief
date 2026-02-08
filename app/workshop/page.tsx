@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Conspiracy } from "@/types/conspiracy";
 import ChatWorkshop from "@/components/ChatWorkshop";
 import ProgressBanner from "@/components/ProgressBanner";
@@ -15,7 +15,6 @@ import {
 
 export default function WorkshopPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [conspiracy, setConspiracy] = useState<Conspiracy | null>(null);
   const [workshopStarted, setWorkshopStarted] = useState(false);
   const [isAutoGenerating, setIsAutoGenerating] = useState(false);

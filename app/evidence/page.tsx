@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Conspiracy } from "@/types/conspiracy";
 import EvidenceFabricator from "@/components/EvidenceFabricator";
 import ProgressBanner from "@/components/ProgressBanner";
@@ -19,7 +19,6 @@ import {
 
 export default function EvidencePage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [conspiracy, setConspiracy] = useState<Conspiracy | null>(null);
   const [slides, setSlides] = useState<Slide[] | null>(null);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
