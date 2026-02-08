@@ -20,21 +20,21 @@ interface Conspiracy {
   teaser: string;
 }
 
-// Helper function to convert image URL to base64
+// Helper function to convert image URL to base64 via API
 async function imageUrlToBase64(url: string): Promise<string> {
   try {
-    const response = await fetch(url);
-    const blob = await response.blob();
-
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result as string;
-        resolve(base64);
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
+    const response = await fetch('/api/convert-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ imageUrl: url }),
     });
+
+    if (!response.ok) {
+      throw new Error('Failed to convert image');
+    }
+
+    const data = await response.json();
+    return data.base64;
   } catch (error) {
     console.error("Error converting image to base64:", error);
     throw error;
