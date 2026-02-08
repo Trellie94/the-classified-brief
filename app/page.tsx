@@ -4,9 +4,19 @@ import { useState } from "react";
 import { Conspiracy } from "@/types/conspiracy";
 import ConspiracySelector from "@/components/ConspiracySelector";
 import ChatWorkshop from "@/components/ChatWorkshop";
+import EvidenceFabricator from "@/components/EvidenceFabricator";
+
+interface Slide {
+  slide_number: number;
+  title: string;
+  talking_points: string[];
+  speaker_notes: string;
+  suggested_image: string;
+}
 
 export default function Home() {
   const [selectedConspiracy, setSelectedConspiracy] = useState<Conspiracy | null>(null);
+  const [generatedSlides, setGeneratedSlides] = useState<Slide[] | null>(null);
 
   const scrollToSelector = () => {
     const element = document.getElementById("conspiracy-selector");
@@ -20,6 +30,15 @@ export default function Home() {
       const element = document.getElementById("chat-workshop");
       element?.scrollIntoView({ behavior: "smooth" });
     }, 100);
+  };
+
+  const handleSlidesGenerated = (slides: Slide[]) => {
+    setGeneratedSlides(slides);
+    // Scroll to evidence fabricator after slides are shown
+    setTimeout(() => {
+      const element = document.getElementById("evidence-fabricator");
+      element?.scrollIntoView({ behavior: "smooth" });
+    }, 500);
   };
 
   return (
@@ -99,7 +118,20 @@ export default function Home() {
       <ConspiracySelector onProceed={handleConspiracySelected} />
 
       {/* Chat Workshop Section - only shows after conspiracy is selected */}
-      {selectedConspiracy && <ChatWorkshop conspiracy={selectedConspiracy} />}
+      {selectedConspiracy && (
+        <ChatWorkshop
+          conspiracy={selectedConspiracy}
+          onSlidesGenerated={handleSlidesGenerated}
+        />
+      )}
+
+      {/* Evidence Fabricator Section - only shows after slides are generated */}
+      {generatedSlides && selectedConspiracy && (
+        <EvidenceFabricator
+          slides={generatedSlides}
+          conspiracy={selectedConspiracy}
+        />
+      )}
     </>
   );
 }

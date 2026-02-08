@@ -21,9 +21,10 @@ interface Slide {
 
 interface ChatWorkshopProps {
   conspiracy: Conspiracy;
+  onSlidesGenerated?: (slides: Slide[]) => void;
 }
 
-export default function ChatWorkshop({ conspiracy }: ChatWorkshopProps) {
+export default function ChatWorkshop({ conspiracy, onSlidesGenerated }: ChatWorkshopProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -144,6 +145,10 @@ export default function ChatWorkshop({ conspiracy }: ChatWorkshopProps) {
             const slideData = JSON.parse(jsonMatch[1]);
             if (slideData.slides && Array.isArray(slideData.slides)) {
               setSlides(slideData.slides);
+              // Notify parent component
+              if (onSlidesGenerated) {
+                onSlidesGenerated(slideData.slides);
+              }
             }
           } catch (e) {
             console.error("Failed to parse slide JSON:", e);
